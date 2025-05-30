@@ -1,0 +1,2 @@
+//this will put a hash of a message to the yellow network, does this for each message, for example do this for each message in mesasge history after the max (20) has been reached
+//we need to also think how to detect that a fresh 20 have been stored, maybe we can mark them as stored in the history

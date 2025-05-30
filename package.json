@@ -1,0 +1,21 @@
+{
+    "name": "enishiwatari",
+    "version": "1.0.0",
+    "description": "eth global praague 2025 project submission",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "node index.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "fuse.js": "^7.1.0",
+        "openai": "^5.0.1",
+        "qrcode-terminal": "^0.12.0",
+        "uuid": "^11.1.0",
+        "whatsapp-web.js": "^1.19.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}
