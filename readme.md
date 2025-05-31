@@ -1,137 +1,174 @@
-# ChainSpeak 🏮 - Your Fate, Your Chat, Your Crypto Journey
+# ChainSpeak – Speak with Crypto ⸜(｡˃ ᵕ ˂ )⸝
 
 **EthGlobal 2025 Prague Submission**
 
 [![EthGlobal][ethglobal-shield]][ethglobal-url]
 
-## ✨ _"Exploring Web3, with a trusted friend."_ ✨
+---
+
+ChainSpeak is our next step toward making Web3 feel as familiar as sending a message. ChainSpeak brings decentralized networks to your fingertips through a simple WhatsApp chat—no jargon, no wallets to master, just easy conversation.
 
 ---
 
-**ChainSpeak (にし渡り)** - where "Enishi" (にし) signifies a fate encounter, and "Watari" (渡り) means to traverse. Following our previous success at ETHPrague with **[Susuwatari](https://devfolio.co/projects/susuwatari-72d7)**, a location-based NFT game, ChainSpeak aims to allow users to traverse web3 for new fate encounters between users and the decentralized world, making Web3 accessible to everybody through the simplicity of a WhatsApp chat.
+## Table of Contents
+
+- [Our Vision](#our-vision)  
+- [What Is ChainSpeak?](#what-is-chainspeak)  
+- [Key Features](#key-features)  
+- [How It Works](#how-it-works)  
+  - [The AI Brain](#the-ai-brain)  
+  - [Blockchain Interaction & EIP-7702](#blockchain-interaction--eip-7702)  
+- [Current Capabilities (EthGlobal Prague 2025)](#current-capabilities-ethglobal-prague-2025)  
+- [Privacy by Design](#privacy-by-design)  
+- [Future Roadmap](#future-roadmap)  
+- [The ChainSpeak Connection](#the-chainspeak-connection)  
+- [Submission for EthGlobal Prague 2025](#submission-for-ethglobal-prague-2025)  
 
 ---
 
-## 📜 Table of Contents
+## Our Vision 
 
-*   [🎯 Our Vision](#-our-vision)
-*   [🤖 What is ChainSpeak?](#-what-is-ChainSpeak)
-*   [💡 Key Features](#-key-features)
-*   [🛠️ How It Works](#️-how-it-works)
-    *   [🧠 The AI Brain](#-the-ai-brain)
-    *   [🔗 Blockchain Interaction & EIP-7702 (The Vision & The Reality)](#-blockchain-interaction--eip-7702-the-vision--the-reality)
-*   [🚀 Current Capabilities (ETHGlobal Prague 2025 Iteration)](#-current-capabilities-ethglobal-prague-2025-iteration)
-*   [🛡️ Privacy First](#️-privacy-first)
-*   [🛣️ Future Roadmap](#️-future-roadmap)
-*   [🤝 The "ChainSpeak" Connection](#-the-ChainSpeak-connection)
-*   [🏆 Submission for EthGlobal Prague 2025](#-submission-for-ethglobal-prague-2025)
+Blockchain and cryptocurrencies promise a new era of transparency and ownership—but for most people, the learning curve is too steep. ChainSpeak’s goal is to bridge that gap. We want anyone, whether a novice or an experienced builder, to interact with decentralized networks as naturally as chatting with a friend ₍^. ̫.^₎. No complicated wallets. No command-line tools. Just type your request, and ChainSpeak handles the rest.
 
 ---
 
-## 🎯 Our Vision
+## What Is ChainSpeak? (•_- )
 
-Blockchain and Cryptocurrencies, while revolutionary, always presents a hard learning curve, hindering mainstream adoption. ChainSpeak's core mission is to **dismantle entry barriers**. We want a future where interacting with decentralized applications, managing digital assets, and exploring all the blockchains is as intuitive as sending a message to a friend. We want to empower users to "traverse" through Web3 with confidence, guided by a helpful AI buddy.
+ChainSpeak is a WhatsApp chatbot powered by AI. Instead of switching between multiple apps or wrestling with tiny buttons, you simply open a chat and ask:
 
----
+- “What’s my Ethereum balance?”  
+- “Mint an NFT on Flow.”  
+- “Swap 0.5 ETH for DAI.”  
+- “Roll a d20 for my on-chain RPG quest.”
+- "Let me play a game."
 
-## 🤖 What is ChainSpeak?
-
-ChainSpeak is an **AI-enabled WhatsApp chatbot** designed to serve as your personal gateway to the Web3 ecosystem. Using natural language, users can:
-
-*   Interact with multiple blockchains and smart contracts.
-*   Execute transactions.
-*   Retrieve on-chain data.
-*   Play blockchain-based games.
-*   And much more, all without needing to understand complex interfaces or crypto-wording.
+Behind the scenes, ChainSpeak manages your wallet interactions (through delegated “sub-wallets”), signs transactions, and calls smart contracts on your behalf. In other words: you talk, and we handle all the blockchain complexity.
 
 ---
 
-## 💡 Key Features
+## Key Features
 
-*   **📱 Familiar Interface:** Uses WhatsApp, an app used by billions globally.
-*   **🗣️ Natural Language Processing:** Understands and executes commands given in plain English (and other languages!).
-*   **🔗 Multi-Chain Interaction:** Designed to connect with a wide range of blockchain networks.
-*   **🎮 On-Chain Gaming Simplified:** Play deployed games by simply chatting with the bot.
-*   **🔗 Easy Smart Contract interactions** Do anything you want with any smart contract, just by chatting with your assistant.
-*   **🔒 Secure (Vision):** Aims to utilize advanced account abstraction (EIP-7702) for secure, user-controlled transaction delegation.
-*   **🕵️ Privacy-Conscious AI (vision):** Minimizes data exposure to third-party AI providers (future vision).
-
----
-
-## 🛠️ How It Works
-
-### 🧠 The AI Brain
-
-At the heart of ChainSpeak is a sophisticated AI.
-
-*   **Current Iteration (ETHGlobal Prague 2025):** For this hackathon, we are utilizing the known powerful, off-the-shelf Large Language Model – **OpenAI's GPT-4.1**, specifically because of its **function calling capabilities**. This allows for fast development, simple natural language understanding, and outstanding intent recognition within our short time and budget constraints.
-*   **Future Vision:** Our long-term goal is to transition to a **self-hosted 70B or 120B parameter LLM** with fine-tuned function calling. This will grant us greater control, enhance privacy, and allow for more specialized Web3 capabilities, but it'll probably cost us more than we make in a year :)
-
-We are committed to user privacy. Even while using OpenAI's models, our architecture is designed to **minimize the data shared with the AI**, sending only what is essential for understanding user intent and invoking the correct blockchain functions. While we will store some of the user data on our backend to allow more natural interactions, in future iterations, this stored info will also be encrypted and minimized where possible.
-
-### 🔗 Blockchain Interaction & EIP-7702 (The Vision & The Reality)
-
-Our goal is to make blockchain interactions seamless and secure, primarily through an extension of Account Abstraction: **EIP-7702**.
-
-**EIP-7702 Vision:**
-EIP-7702 proposes a new transaction type that allows an Externally Owned Account (EOA) to temporarily act as a smart contract wallet for a single transaction. This is incredibly useful for delegation. We want users creating "sub-wallets" or "delegate permissions" for ChainSpeak. For example, a user could authorize the chatbot to execute up to 10 specific transactions (e.g., "mint NFT," "claim reward") from a designated sub-wallet with a pre-funded gas allowance. This means ChainSpeak could act on the user's behalf for a limited scope of pre-approved actions without compromising the user's main wallet keys. The chatbot effectively becomes a temporary delegate with a clear set of permissions and a limited transaction pool.
-
-**The ETHGlobal Prague 2025 Reality (Spoofing EIP-7702):**
-EIP-7702 is a very new Ethereum Improvement Proposal. While approved, it has not yet been widely implemented by major chains. Integrating it fully within the hackathon timeframe was unfeasible.
-Therefore, for this iteration, we have **"spoofed" the EIP-7702 user experience**. This means:
-
-1.  Users can conceptually authorize the chatbot for a set number of actions.
-2.  The chatbot *simulates* having a delegate wallet with pre-approved transaction capabilities.
-3.  In the backend, for this demo, transaction execution will be handled by a pre-funded project wallet, while mimicking the *intended flow* of EIP-7702.
-
-This approach allows us to demonstrate the user-facing benefits and interaction model of EIP-7702, highlighting its potential to revolutionize how users interact with dApps via agents like ChainSpeak, even before the EIP sees widespread adoption. **True EIP-7702 integration remains a top priority for future development. --- EIP 7702 has already been approved so it shouldn't be long!**
+1. **Chat-First Experience**  
+   Interact with every supported blockchain using plain language—no wallet UIs, no confusing settings.  
+2. **Multi-Chain Support**  
+   Ethereum, Flow, Hedera, RSK, Pyth oracle feeds, and more. ChainSpeak connects to each network behind the scenes.  
+3. **On-Chain Gaming**  
+   Play simple text-based RPGs or mini-games on Rootstock and other chains without leaving your chat.  
+4. **Secure Delegation (Vision)**  
+   We’re building toward [EIP-7702](https://eip7702.io/), offering temporary “sub-wallets” so you can delegate limited permissions to the bot without exposing your main private key.  
+5. **Privacy-First AI (Vision)**  
+   We minimize the data shared with external AI services—future versions will store as little information as possible, with end-to-end encryption. Privacy first after all. ₍⸍⸌̣ʷ̣̫⸍̣⸌₎ﾉ♡
+6. **Extensible & Modular**  
+   New chains and dApps can be added quickly. We’ve architected ChainSpeak so additional integrations—DeFi swaps, NFT marketplaces, DAO voting—fall into place with minimal fuss.
 
 ---
 
-## 🚀 Current Capabilities (ETHGlobal Prague 2025 Iteration)
+## How It Works ≽^•⩊•^≼
 
-During this hackathon, ChainSpeak can interact with the following platforms and perform these actions (this is written before development so we might not be able to do all the integrations, i am writing this in case i forget to update it later):
+### The AI Brain
 
-*   **🔗 Supported Networks/Services:**
-    *   **Blockscout:** Retrieve transaction history for any wallet as a screenshot.
-    *   **Flow:** Interact with Flow-based assets or contracts.
-    *   **Hedera:** Engage with Hedera's network services.
-    *   **Pyth:** Fetch real-time price feeds and/or rolle some D20's for your dungeons and dragons game!
-    *   **Rootstock (RSK):** Play a text based RPG on-chain, through Whatsapp!.
-    *   **Yellow:** All your AI interactions will be securely logged so that you know there have been no manipulations.
+- **Today’s Setup (EthGlobal Prague 2025):**  
+  We use OpenAI’s GPT-4.1 with function-calling to interpret your messages. When you ask, “Send 0.3 ETH to 0x123…,” GPT-4.1 extracts the intent (send), amount (0.3 ETH), and recipient (0x123…). Our backend then constructs the transaction and alerts you to confirm.  
+- **Tomorrow’s Vision:**  
+  A self-hosted 70B+ parameter LLM, fine-tuned on Web3 protocols and EIP specifications. That shift will cut out third-party APIs, reduce latency, and give us full control over how user data is handled.
 
+Even now, we only send the bare minimum to GPT-4.1—just enough context to understand your request. Your full wallet data never leaves our secure backend. Anything we store on-chain or off-chain is encrypted at rest, and we’ll layer in end-to-end encryption soon.
 
----
+### Blockchain Interaction & [EIP-7702](https://eip7702.io/)
 
-## 🛡️ Privacy First
+**[EIP-7702](https://eip7702.io/) Vision**  
+Account Abstraction (AA) takes over the clunky parts of wallet management. [EIP-7702](https://eip7702.io/) specifically allows you to “lend” certain transaction powers to a smart contract wallet for a single operation. In ChainSpeak’s world:
 
-While using the power of OpenAI's models for this iteration, we are acutely aware of data privacy concerns. Our design philosophy is to **minimize the data footprint** sent to external AI services. We only transmit the necessary information for intent recognition and function parameter extraction, ensuring that sensitive user data beyond the immediate request context is not unnecessarily exposed. Our future goal of self-hosting a large language model will further solidify this commitment.
+1. You authorize a “sub-wallet” for a handful of actions—minting an NFT, claiming a reward, whatever you choose.  
+2. You deposit a small gas allowance into that sub-wallet.  
+3. ChainSpeak executes approved actions on your behalf, and you never share your main private key.
 
----
+This model removes the need to manually confirm every single signature. You still control exactly what actions are allowed, and you can revoke the sub-wallet at any time.
 
-## 🛣️ Future Roadmap
+**EthGlobal Prague 2025 Reality (Spoofed EIP-7702)**  
+Unfortunately (¬`‸´¬), since most blockchains haven’t shipped native EIP-7702 yet, we simulate it:
 
-ChainSpeak is just beginning its work. Our future plans include:
-
-*   **✅ Full EIP-7702 Integration:** Transition from spoofing to native EIP-7702 support as chains adopt it.
-*   **🧠 Self-Hosted LLM:** Deploy our own 70B/120B parameter model for enhanced privacy, control, and Web3-specific fine-tuning.
-*   **🌐 Expanded (maybe Dynamic) Blockchain Support:** Integrate with more Layer 1s, Layer 2s, and specific dApps.
-*   **🧩 Deeper and Dynamic Smart Contract Interactions:** Allow more complex multi-step operations and contract deployments.
-*   **💸 DeFi Management:** Enable users to manage staking, swapping, and liquidity provision via chat.
-*   **🖼️ NFT Management:** Simplified minting, trading, and portfolio viewing for NFTs.
-*   **🔔 Personalized Notifications:** Proactive alerts for on-chain events relevant to the user.
-*   **🌍 Better Multi-Language Support:** Making Web3 accessible to non-English speakers.
+- When you “authorize” ChainSpeak, our backend creates a temporary in-memory sub-wallet and tracks how many actions remain.  
+- Each time you send a command, we decrement the counter. A pre-funded project wallet executes the transaction, but it appears to come from your delegated sub-wallet.  
+- Once EIP-7702 support goes live on chains, we’ll drop the simulation and switch to real on-chain delegates ദ്ദി(ᵔᗜᵔ).
 
 ---
 
+## Current Capabilities (EthGlobal Prague 2025)
 
-## 🏆 Submission for EthGlobal Prague 2025
+During this hackathon, ChainSpeak can:
 
-ChainSpeak is proudly submitted to EthGlobal Prague 2025. We believe it represents a significant step towards making Web3 universally accessible and user-friendly. We're excited to share our progress and vision with the community!
+- **Blockscout History Screenshots**  
+  Ask for any wallet’s recent transactions, and get a screenshot of the Blockscout page right in your chat.  
+- **Flow Token & Contract Queries**  
+  Check balances or call simple functions on Flow-based contracts.  
+- **Hedera Account Management**  
+  Query balances, send HBAR, or check transaction status on Hedera.  
+- **Pyth Oracle Feeds & RNG**  
+  Fetch up-to-the-second price data for tokens—or roll a “d20” for your text-based RPG.  
+- **RSK Text-Based RPG**  
+  Dive into a minimal on-chain adventure: pick actions, see outcomes, level up your character, all through WhatsApp.  
+- **Yellow Protocol Logging**  
+  Every AI ↔ user interaction is recorded on Yellow, so you can audit the conversation and verify nothing was tampered with.
+
+> *Note: We set out to integrate more platforms, but actual availability depends on development progress. What’s listed above is what we’ve completed or are confidently demoing.*
 
 ---
 
-*Let the fated wandering begin!*
+## Privacy by Design
 
-[ethglobal-shield]: https://img.shields.io/badge/EthGlobal-Prague%202025-blueviolet
-[ethglobal-url]: https://ethglobal.com/events/prague2025
+We built ChainSpeak around the principle of “share nothing you don’t have to.” Here’s what stays private:
+
+- **Your Full Private Key**  
+  Never shared with AI, never exposed in logs.  
+- **Complete Transaction History**  
+  We only send your immediate request (e.g., “send 1 ETH to X”) and the parameters needed to fulfill it.  
+- **Personal Chat Logs**  
+  Stored only to maintain context (so you can say “send the rest of my ETH to Y” without repeating yourself). These logs are encrypted at rest. Future updates will add client-side encryption so even we can’t see them.
+
+Down the line, we plan to add zero-knowledge proofs to let you prove ownership of a wallet without revealing your private key, and roll out full end-to-end messaging encryption.
+
+---
+
+## Future Roadmap
+
+ChainSpeak has a busy roadmap ahead. Highlights include:
+
+- **Native EIP-7702 Integration**  
+  Once major chains support it, we’ll enable real on-chain sub-wallets and drop the spoofed workflow.  
+- **Self-Hosted LLM**  
+  Migrate to our own 70B+ parameter model, eliminating third-party AI calls, cutting latency, and giving us full control over privacy.  
+- **Expanded Chain & dApp Coverage**  
+  Ethereum L2s, Solana, Avalanche—and popular DeFi protocols like Uniswap, Aave, and Curve.  
+- **Advanced Multi-Step Workflows**  
+  Instead of one-off commands, let users say “swap USDC for ETH, then stake in Lido,” and we’ll execute the entire sequence.  
+- **DeFi Portfolio Dashboard (Chat-Style)**  
+  “What’s my total TVL?” “Show my staking yields.” “Rebalance my holdings for a 60/40 split.”  
+- **NFT Management**  
+  Mint, list, bid, transfer, and track entire NFT collections—right in WhatsApp.  
+- **Proactive Alerts & Notifications**  
+  “Notify me when ETH price drops below $3,000” or “Alert me if someone places a bid on my NFT.”  
+- **Global, Multilingual Support**  
+  Expand beyond English—Spanish, Mandarin, Hindi, Portuguese, and more—so everyone can chat with ChainSpeak in their preferred language.
+
+---
+
+## The ChainSpeak Connection
+
+ChainSpeak is more than a bot; it’s a bridge between you and decentralized networks. Whether you’re:
+
+- A seasoned builder checking block confirmations,  
+- A collector minting your first NFT,  
+- A gamer rolling on-chain dice for your RPG adventure,  
+- Or just someone curious about “what’s happening in crypto”—
+
+ChainSpeak walks you through every step ⸜(｡˃ ᵕ ˂)⸝♡. No more hunting for the right dApp UI. No more “gas wars” or wallet imports. Just chat. That’s how Web3 should feel.
+
+---
+
+## Submission for EthGlobal Prague 2025
+
+ChainSpeak is our entry to EthGlobal Prague 2025. We believe it demonstrates a clear path to making Web3 accessible and intuitive for everyone. We can’t wait to share our WhatsApp demo and show you how simple it is to “speak” with crypto. ദ്ദി( • ᴗ - ) ✧
+
+[ethglobal-shield]: https://img.shields.io/badge/EthGlobal-Prague%202025-blueviolet  
+[ethglobal-url]: https://ethglobal.com/events/prague2025  
