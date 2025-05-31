@@ -88,7 +88,7 @@ const config: HardhatUserConfig = {
             }
           },
           kaia: {
-            url: `https://kaia-kairos.blockpi.network/v1/rpc/public`,
+            url: `https://rpc.ankr.com/kaia_testnet`,
             chainId: 1001,
             gasPrice: 90000000,
             blockGasLimit: 999999999999,
