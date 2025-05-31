@@ -1,5 +1,3 @@
-//requirement: using blockscout api
-
 const { MessageMedia } = require('whatsapp-web.js');
 const nodeHtmlToImage = require('node-html-to-image');
 
@@ -47,9 +45,9 @@ function getBlockscoutHostAndApi(chain) {
     default:
       if (normalizedChain.includes('/')) {
         const parts = normalizedChain.split('/');
-        blockscoutDomain = `${parts[0]}-${parts[1]}.blockscout.com`; // e.g., eth-holesky.blockscout.com
+        blockscoutDomain = `${parts[0]}-${parts[1]}.blockscout.com`; 
         chainName = normalizedChain.replace('/', ' ');
-        chainName = chainName.charAt(0).toUpperCase() + chainName.slice(1); // Capitalize
+        chainName = chainName.charAt(0).toUpperCase() + chainName.slice(1); 
       } else {
         blockscoutDomain = `${normalizedChain}.blockscout.com`;
         chainName = normalizedChain.charAt(0).toUpperCase() + normalizedChain.slice(1);
