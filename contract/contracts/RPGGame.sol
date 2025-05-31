@@ -192,25 +192,76 @@ contract RPGGame {
         }
     }
 
-    function _split(address p, uint256 rid, uint256 seed) private {
+function _split(address p, uint256 rid, uint256 seed) private {
         Game storage G = g[p];
-        Subregion memory R0 = G.regs[rid];
-        bool horiz = R0.h > R0.w ? true : (R0.w > R0.h ? false : (seed & 1 == 0));
-        if (horiz) {
-            uint256 sp = R0.y + 1 + (seed % (R0.h - 1));
-            G.regs[rid].h = sp - R0.y;
-            G.regs.push(Subregion({x:R0.x,y:sp,w:R0.w,h:R0.y+R0.h-sp}));
-            G.leaves.push(G.regs.length - 1);
-            G.edges.push(Edge({r1:rid,r2:G.regs.length - 1,horiz:true}));
-        } else {
-            uint256 sp = R0.x + 1 + (seed % (R0.w - 1));
-            G.regs[rid].w = sp - R0.x;
-            G.regs.push(Subregion({x:sp,y:R0.y,w:R0.x+R0.w-sp,h:R0.h}));
-            G.leaves.push(G.regs.length - 1);
-            G.edges.push(Edge({r1:rid,r2:G.regs.length - 1,horiz:false}));
+        // It's crucial to work with a memory copy for decision making about dimensions,
+        // and then apply changes to the G.regs[rid] storage variable.
+        Subregion storage R0_storage = G.regs[rid];
+        Subregion memory R0_mem_copy = R0_storage; // Use this for reading initial dimensions
+
+        bool can_split_horizontally = R0_mem_copy.h > 1;
+        bool can_split_vertically = R0_mem_copy.w > 1;
+
+        bool perform_actual_horizontal_split;
+        bool split_is_possible = false;
+
+        if (can_split_horizontally && can_split_vertically) {
+            // Both directions are possible, choose based on proportions or randomness
+            perform_actual_horizontal_split = R0_mem_copy.h > R0_mem_copy.w ? true : (R0_mem_copy.w > R0_mem_copy.h ? false : ((seed & 1) == 0));
+            split_is_possible = true;
+        } else if (can_split_horizontally) {
+            perform_actual_horizontal_split = true;
+            split_is_possible = true;
+        } else if (can_split_vertically) {
+            perform_actual_horizontal_split = false; // Must be vertical
+            split_is_possible = true;
         }
+        // If neither, split_is_possible remains false (e.g., region is 1x1)
+
+        if (!split_is_possible) {
+            // This region cannot be split further.
+            // By returning here, G.leaves.push(new_idx) at the end of this function is skipped.
+            // This means G.leaves.length in _gen() will not increment for this chosen 'rid'.
+            // This could lead to the _gen() loop not reaching G.roomCount if all remaining
+            // leaves become unsplittable. This is a design consideration for your BSP parameters.
+            return;
+        }
+
+        uint256 new_idx = G.regs.length; // Pre-calculate index for the new region
+
+        if (perform_actual_horizontal_split) {
+            // Guaranteed R0_mem_copy.h > 1, so R0_mem_copy.h - 1 >= 1. Modulo is safe.
+            uint256 sp_offset = seed % (R0_mem_copy.h - 1);
+            uint256 sp = R0_mem_copy.y + 1 + sp_offset;
+
+            R0_storage.h = sp - R0_mem_copy.y; // Modify the original region in storage
+            G.regs.push(Subregion({
+                x: R0_mem_copy.x,
+                y: sp,
+                w: R0_mem_copy.w,
+                h: (R0_mem_copy.y + R0_mem_copy.h) - sp
+            }));
+            G.edges.push(Edge({r1: rid, r2: new_idx, horiz: true}));
+        } else { // Perform vertical split
+            // Guaranteed R0_mem_copy.w > 1, so R0_mem_copy.w - 1 >= 1. Modulo is safe.
+            uint256 sp_offset = seed % (R0_mem_copy.w - 1);
+            uint256 sp = R0_mem_copy.x + 1 + sp_offset;
+
+            R0_storage.w = sp - R0_mem_copy.x; // Modify the original region in storage
+            G.regs.push(Subregion({
+                x: sp,
+                y: R0_mem_copy.y,
+                w: (R0_mem_copy.x + R0_mem_copy.w) - sp,
+                h: R0_mem_copy.h
+            }));
+            G.edges.push(Edge({r1: rid, r2: new_idx, horiz: false}));
+        }
+        // This push increments G.leaves.length by 1 if a split occurred.
+        // The loop in _gen() while (G.leaves.length < G.roomCount) relies on this.
+        G.leaves.push(new_idx);
     }
 
+    
     function _create(address p, uint256 id) internal {
         Room storage R = g[p].rooms[id];
         R.exists = true;

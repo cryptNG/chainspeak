@@ -87,6 +87,19 @@ const config: HardhatUserConfig = {
                 passphrase: "",
             }
           },
+          kaia: {
+            url: `https://kaia-kairos.blockpi.network/v1/rpc/public`,
+            chainId: 1001,
+            gasPrice: 90000000,
+            blockGasLimit: 999999999999,
+            accounts: {
+                mnemonic: `${HEDERA_MNEMONIC}`,
+                path: "m/44'/60'/0'/0",
+                initialIndex: 0,
+                count: 20,
+                passphrase: "",
+            }
+          },
     },
     etherscan: {
         apiKey: {
@@ -94,6 +107,7 @@ const config: HardhatUserConfig = {
             neonlabs: "test",
             chiado:"your key",
             rsktestnet: `${ROOTSTOCK_APIKEY}`,
+            sanko: 'empty'
         },
         customChains: [
           {
@@ -104,6 +118,14 @@ const config: HardhatUserConfig = {
                     browserURL: "https://rootstock-testnet.blockscout.com/",
                 }
             },
+            {
+                network: "sanko",
+                chainId: 1992,
+                urls: {
+                apiURL: "https://sanko-arb-sepolia.explorer.caldera.xyz/api",
+                browserURL: "https://sanko-arb-sepolia.explorer.caldera.xyz"
+                }
+            }
         ],
     },
 };
