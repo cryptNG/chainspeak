@@ -29,7 +29,7 @@ Inspired by The Hitchhiker's Guide to the Galaxy, we want to enable users to dep
 
 ## Our Vision 
 
-Blockchain and cryptocurrencies promise a new era of transparency and ownership—but for most people, the learning curve is too steep. ChainSpeak’s goal is to bridge that gap. We want anyone, whether a novice or an experienced builder, to interact with decentralized networks as naturally as chatting with a friend ₍^. ̫.^₎. No complicated wallets. No command-line tools. Just type your request, and DeepThought handles the rest.
+Blockchain and cryptocurrencies promise a new era of transparency and ownership—but for most people, the learning curve is too steep. DeepThought’s goal is to bridge that gap. We want anyone, whether a novice or an experienced builder, to interact with decentralized networks as naturally as chatting with a friend ₍^. ̫.^₎. No complicated wallets. No command-line tools. Just type your request, and DeepThought handles the rest.
 
 ---
 
@@ -78,7 +78,7 @@ Even now, we only send the bare minimum to GPT-4.1—just enough context to unde
 ### Blockchain Interaction & [EIP-7702](https://eip7702.io/)
 
 **[EIP-7702](https://eip7702.io/) Vision**  
-Account Abstraction (AA) takes over the clunky parts of wallet management. [EIP-7702](https://eip7702.io/) specifically allows you to “lend” certain transaction powers to a smart contract wallet for a single operation. In ChainSpeak’s world:
+Account Abstraction (AA) takes over the clunky parts of wallet management. [EIP-7702](https://eip7702.io/) specifically allows you to “lend” certain transaction powers to a smart contract wallet for a single operation. In DeepThought’s world:
 
 1. You authorize a “sub-wallet” for a handful of actions—minting an NFT, claiming a reward, whatever you choose.  
 2. You deposit a small gas allowance into that sub-wallet.  
