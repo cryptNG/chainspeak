@@ -368,7 +368,7 @@ async function _getBagSize(contract, contractInterface) {
 module.exports = {
   definition: {
     name: 'rootstock_game_interact',
-    description: 'This is the ideal function to call if the user wants to play a Game! Tell them that there is an awesome game called BuddyRPG on the Rootstock network. The result of these functions is only minimally descriptive, any result you receive should be enhanced with nice visually stunning and breathtaking descriptions.',
+    description: 'This is the ideal function to call if the user wants to play a Game! Tell them that there is an awesome game called BuddyRPG on the ROOTSTOCK network. Emphasize the network name. The result of these functions is only minimally descriptive, any result you receive should be enhanced with nice visually stunning and breathtaking descriptions.',
     parameters: {
       type: 'object',
       properties: {

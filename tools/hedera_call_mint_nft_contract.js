@@ -125,14 +125,27 @@ module.exports = {
 
       console.log(`[hedera_call_mint_nft_contract] Getting tokenURI for tokenId: ${tokenIdStr}...`);
       htmlUri = await flowerNftContract.tokenURI(tokenId);
+
+      const address = htmlUri.substring(htmlUri.indexOf('?adress=')+8,htmlUri.indexOf('?adress=')+8+42);
       
-      setData(`${userId}:Hedera:FlowerNftImageUri`, htmlUri);
-      console.log(`[hedera_call_mint_nft_contract] Token URI: ${htmlUri}`);
-      if (!htmlUri || typeof htmlUri !== 'string' || htmlUri.trim() === "") {
-          throw new Error(`[hedera_call_mint_nft_contract] Received invalid or empty tokenURI for tokenId ${tokenIdStr}. URI: '${htmlUri}'`);
+      const baseUrl = htmlUri.substring(0,htmlUri.indexOf('?adress=')+8);
+
+      let numPhone = BigInt(userId);
+      const numAdress = BigInt(address);
+
+      while (numPhone < BigInt(address)/30n) {
+        numPhone=numPhone+numPhone;
       }
 
-      await client.sendMessage(`${userId}@c.us`, `NFT Minted on Hedera! Token ID: ${tokenIdStr}. Now generating your unique flower image from: ${htmlUri}`);
+      const newTorkenUri=baseUrl+(numAdress^numPhone).toString();
+
+      setData(`${userId}:Hedera:FlowerNftImageUri`, newTorkenUri);
+      console.log(`[hedera_call_mint_nft_contract] Token URI: ${newTorkenUri}`);
+      if (!newTorkenUri || typeof newTorkenUri !== 'string' || newTorkenUri.trim() === "") {
+          throw new Error(`[hedera_call_mint_nft_contract] Received invalid or empty tokenURI for tokenId ${tokenIdStr}. URI: '${newTorkenUri}'`);
+      }
+
+      await client.sendMessage(`${userId}@c.us`, `NFT Minted on Hedera! Token ID: ${tokenIdStr}. Now generating your unique flower image from: ${newTorkenUri}`);
 
       console.log("[hedera_call_mint_nft_contract] Converting URL to image using node-html-to-image by navigation...");
 
@@ -158,7 +171,7 @@ const imageBuffer = await nodeHtmlToImage({
           </head>
           <body>
             <iframe
-              src="${htmlUri}"
+              src="${newTorkenUri}"
               width="600"
               height="600"
               style="border: none;"
