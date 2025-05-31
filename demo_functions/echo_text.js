@@ -1,4 +1,4 @@
-//  exemplary tool call
+// functions/echo_text.js
 
 module.exports = {
   definition: {
