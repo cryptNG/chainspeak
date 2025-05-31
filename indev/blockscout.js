@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const fs = require('fs');
 const nodeHtmlToImage = require('node-html-to-image');
 

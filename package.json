@@ -1,16 +1,21 @@
 {
-    "name": "ChainSpeak",
+    "name": "whatsapp-cryptng-bot",
     "version": "1.0.0",
-    "description": "eth global praague 2025 project submission",
+    "description": "WhatsApp cryptng Bot",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
         "dev": "node index.js"
     },
     "dependencies": {
+        "dotenv": "^16.5.0",
+        "ethers": "^6.14.3",
         "express": "^4.17.1",
         "fuse.js": "^7.1.0",
+        "html-to-image": "^1.11.13",
+        "node-html-to-image": "^5.0.0",
         "openai": "^5.0.1",
+        "puppeteer": "24.9.0",
         "qrcode-terminal": "^0.12.0",
         "uuid": "^11.1.0",
         "whatsapp-web.js": "^1.19.4"

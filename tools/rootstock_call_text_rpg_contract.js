@@ -364,20 +364,6 @@ async function _getBagSize(contract, contractInterface) {
     }
 }
 
-async function _getBalance(provider, walletAddress, mainContractInterfaceForErrorParsing) {
-    let messages = [`Fetching balance for ${walletAddress}...`];
-    try {
-        const balance = await provider.getBalance(walletAddress);
-        const formattedBalance = ethers.formatEther(balance);
-        messages.push(`Wallet balance: ${formattedBalance} tRBTC (using Rootstock's native currency denomination).`); // Assuming tRBTC for Rootstock testnet
-        return { success: true, message: messages.join('\n') };
-    } catch (error) {
-        const reason = parseRevertReason(error, mainContractInterfaceForErrorParsing); // Use main ABI for consistency, though error might not be from it
-        messages.push(`Error fetching balance: ${reason}`);
-        return { success: false, message: messages.join('\n') };
-    }
-}
-
 
 module.exports = {
   definition: {
@@ -401,7 +387,7 @@ module.exports = {
         action: {
           type: 'string',
           description: 'The game action to perform.',
-          enum: ['newGame', 'look', 'bag', 'grab', 'drop', 'go', 'bagSize', 'getBalance']
+          enum: ['newGame', 'look', 'bag', 'grab', 'drop', 'go', 'bagSize']
         },
         item: {
           type: 'string',
@@ -412,18 +398,18 @@ module.exports = {
           description: 'The direction to go (e.g., "North", "East", "South", "West"; required for "go" action). Case-insensitive.'
         }
       },
-      required: ['contractAddress', 'rpcUrl', 'privateKey', 'action'],
+      required: ['contractAddress', 'rpcUrl', 'action'],
       additionalProperties: false
     }
   },
   handler: async (params) => {
-    const { client, userId, contractAddress, rpcUrl, privateKey, action, item, direction } = params;
+    const { client, userId, contractAddress, rpcUrl, action, item, direction } = params;
 
-    if (!rpcUrl || !privateKey) {
-        return { text: "Error: Missing required parameters: rpcUrl or privateKey." };
+    if (!rpcUrl ) {
+        return { text: "Error: Missing required parameters: rpcUrl." };
     }
     
-    if (action.toLowerCase() !== 'getbalance' && !contractAddress) {
+    if (!contractAddress) {
         return { text: "Error: contractAddress is required for this action." };
     }
 
@@ -431,14 +417,12 @@ module.exports = {
 
 
     let provider;
-    let wallet;
     let contract;
     let mainContractInterface; 
-
+let wallet;
     try {
         provider = new ethers.JsonRpcProvider(rpcUrl);
         wallet = new ethers.Wallet(privateKey, provider);
-
         if (contractAddress) {
             contract = new ethers.Contract(contractAddress, contractAbi, wallet);
             mainContractInterface = contract.interface;
@@ -446,7 +430,7 @@ module.exports = {
         
         console.log(`[rootstock_game_tool] Wallet address: ${wallet.address}`);
         const initialBalance = await provider.getBalance(wallet.address);
-        if (initialBalance === 0n && action.toLowerCase() !== 'getbalance') {
+        if (initialBalance === 0n ) {
              console.warn(`[rootstock_game_tool] Warning: Wallet ${wallet.address} has 0 balance. Transactions for actions other than 'getBalance' will likely fail.`);
              
         }
@@ -486,19 +470,16 @@ module.exports = {
                 if (!contract) return { text: "Error: contractAddress required for bagSize." };
                 result = await _getBagSize(contract, mainContractInterface);
                 break;
-            case 'getbalance':
-                result = await _getBalance(provider, wallet.address, mainContractInterface);
-                break;
             default:
-                return { text: `Error: Unknown action "${action}". Valid actions are: newGame, look, bag, grab, drop, go, bagSize, getBalance.` };
+                return { text: `Error: Unknown action "${action}". Valid actions are: newGame, look, bag, grab, drop, go, bagSize.` };
         }
         
         let finalMessage = result.message;
-        if (initialBalance === 0n && action.toLowerCase() !== 'getbalance' && result.success) {
+        if (initialBalance === 0n  && result.success) {
             finalMessage = `Warning: Your wallet had 0 balance. The transaction might have only succeeded if it required no gas or was sponsored.\n\n${result.message}`;
-        } else if (initialBalance === 0n && action.toLowerCase() !== 'getbalance' && !result.success && result.message.includes("insufficient funds")) {
+        } else if (initialBalance === 0n  && !result.success && result.message.includes("insufficient funds")) {
              
-        } else if (initialBalance === 0n && action.toLowerCase() !== 'getbalance' && !result.success) {
+        } else if (initialBalance === 0n  && !result.success) {
             finalMessage = `Warning: Your wallet has 0 balance, which might be the cause of the failure.\n\n${result.message}`;
         }
 

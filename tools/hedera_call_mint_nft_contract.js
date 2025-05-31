@@ -40,7 +40,7 @@ module.exports = {
     
     await client.sendMessage(`${userId}@c.us`, "🌸 Let's mint your unique Flower NFT on Hedera! This will bloom on the fast, eco-friendly, and secure Hedera network. ⏳ One moment please...");
 
-    // Check if contract ABI loaded successfully
+    
     if (contractLoadingError) {
         throw new Error(contractLoadingError);
     }
@@ -209,8 +209,8 @@ This seamless experience is brought to you by Hedera's incredibly fast, carbon-n
       console.error("[hedera_call_mint_nft_contract] Error during minting or image processing:", error);
       let detailedErrorMessage = "Error processing FlowerNFT minting or image generation on Hedera.";
       if (error.message) detailedErrorMessage += ` Message: ${error.message}`;
-      if (error.reason) detailedErrorMessage += ` Reason: ${error.reason}`; // Ethers.js specific
-      if (error.code) detailedErrorMessage += ` Code: ${error.code}`;       // Ethers.js specific
+      if (error.reason) detailedErrorMessage += ` Reason: ${error.reason}`; 
+      if (error.code) detailedErrorMessage += ` Code: ${error.code}`;       
       if (error.transactionHash) detailedErrorMessage += ` TxHash: ${error.transactionHash}`;
       
       if (typeof error === 'object' && error !== null) {
