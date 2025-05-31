@@ -69,8 +69,7 @@ async function messageHandler(client, incomingMessage) {
 
   // first-time greeting
   if (session.history.length === 0) {
-    const greeting = '👋 Hello! I’m your assistant. How can I help you today?';
-    await client.sendMessage(`${userId}@c.us`, greeting);
+    const greeting = '👋 Hello! I’m your assistant from DeepThought, your Blockchain Natural Language assistant!. How can I help you today?';
     session.history.push({ role: 'assistant', content: greeting });
   }
 

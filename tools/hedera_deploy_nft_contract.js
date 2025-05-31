@@ -7,7 +7,10 @@ const { getData, setData } = require('../data/store');
 const nodeHtmlToImage = require('node-html-to-image');
 const { MessageMedia } = require('whatsapp-web.js');
 
-const baseURI = "https://bafybeidkuf5scp3asbsb2b5ke2ny5jwk6bsjpn6sbvlcpc6f6ojbd7f5va.ipfs.dweb.link/?filename=index.min.html?adress=";
+//on ipfs, was too slow for the demo because we only have one node
+//const baseURI = "https://bafybeidkuf5scp3asbsb2b5ke2ny5jwk6bsjpn6sbvlcpc6f6ojbd7f5va.ipfs.dweb.link/?filename=index.min.html?adress=";
+
+const baseURI = "https://cryptng.github.io/deepThought/web/FlowerNft/index.html?adress=";
 
 
 const contractArtifactPath = path.resolve(__dirname, '..', 'contract', 'artifacts', 'contracts', 'FlowerNft.sol', 'FlowerNFT.json');
