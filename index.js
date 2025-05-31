@@ -20,7 +20,7 @@ client.on('qr', (qr) => {
         console.log('QR CODE:');
         qrcode.generate(qr, { small: true });
         qrDisplayed = true;
-        console.log('Scan the QR code above to log in');
+        console.log('Scan the QR code above to log in, for that, use whatsapp on the phone you want to host the bot with, and select -link device-');
     }
 });
 
