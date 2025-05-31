@@ -372,14 +372,6 @@ module.exports = {
     parameters: {
       type: 'object',
       properties: {
-        contractAddress: {
-          type: 'string',
-          description: `The Rootstock RPG game contract address, if not provided by the user, it will be ${contractAddress}`
-        },
-        rpcUrl: {
-          type: 'string',
-          description: `The Rootstock RPC URL (e.g., Rootstock Testnet RPC).  If not provided by the user, it will be ${rpcUrl}`
-        },
         privateKey: {
           type: 'string',
           description: `The private key of the wallet to interact with the contract. If not provided by the user, it will be ${privateKey}`
@@ -398,12 +390,11 @@ module.exports = {
           description: 'The direction to go (e.g., "North", "East", "South", "West"; required for "go" action). Case-insensitive.'
         }
       },
-      required: ['contractAddress', 'rpcUrl', 'action'],
       additionalProperties: false
     }
   },
   handler: async (params) => {
-    const { client, userId, contractAddress, rpcUrl, action, item, direction } = params;
+    const { client, userId, action, item, direction } = params;
 
     if (!rpcUrl ) {
         return { text: "Error: Missing required parameters: rpcUrl." };
