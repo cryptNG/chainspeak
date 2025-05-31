@@ -1193,7 +1193,7 @@ const cmap =[
       return BigInt('0b' + xorBinStr);
     }
 
-    document.addEventListener("DOMContentLoaded", async ()=> {
+    
       const uri = decodeURIComponent(window.location.search);
       const pos=uri.indexOf('?adress=')+8;
       const address =uri.substring(pos,pos+42);
@@ -1203,7 +1203,7 @@ const cmap =[
      let hexSeed = BigIntAddress.toString(16);
       const iconGenerator = new Icon(hexSeed+hexSeed, document.querySelector('svg'));
       iconGenerator.generateIcon();
-    });
+ 
   </script>
   
 </body>
